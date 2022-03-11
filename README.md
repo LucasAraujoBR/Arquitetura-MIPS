@@ -3,7 +3,7 @@
 <h2>Grupo</h2>
 <p>* Lucas Araújo</p>
 <p>* Matheus Fidelis</p>
-<p>* Arthur Scanoni</p>
+
 
 
 
