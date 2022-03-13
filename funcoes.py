@@ -7,7 +7,7 @@ def backup():
     data_atual = date.today()
     data_em_texto = '{}-{}-{}'.format(data_atual.day, data_atual.month,data_atual.year)
     cur_path = os.path.dirname(__file__)
-    source = f'{cur_path}/resultado/instruções.json'
+    source = f'{cur_path}/output/instruções.json'
     destination = f'{cur_path}/backup/{data_em_texto}_output.json'
     shutil.move(source,destination)
 
@@ -28,14 +28,14 @@ def cria_json(dicionario,contador):
     cur_path = os.path.dirname(__file__)
     lista_arquivos = [
         arquivo
-        for arquivo in os.listdir(f"{cur_path}/resultado/")
+        for arquivo in os.listdir(f"{cur_path}/output/")
         if arquivo.endswith(".json")
     ]
     print(lista_arquivos)
     data = {}
     if len(dicionario) > 0:
         nome_arquivo = 'Instruções'
-        caminho_arquivo = f"{cur_path}/resultado/{nome_arquivo}.json"
+        caminho_arquivo = f"{cur_path}/output/{nome_arquivo}.json"
         print(caminho_arquivo)
 
         if f"{nome_arquivo}.json" in lista_arquivos:
