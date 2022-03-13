@@ -1,3 +1,6 @@
+from read_json import leitura_json
+from hex_to_bin import convert_bin
+import build_instruction_assembly
 def binaryToDecimal(binary):
     decimal, i= 0, 0
     while(binary != 0):
@@ -25,5 +28,11 @@ if __name__ == '__main__':
     op = int(op,2)
     fn = binary[-6:]
     fn = int(fn,2)
+    word = "11001"
+
     print(fn)
-    print(classifica_tipo(op,fn))
+    print("classifica tipo: ", classifica_tipo(op,fn))
+    bins_list = convert_bin(leitura_json())
+    build_instruction_assembly.leitura_listagem_bins(bins_list)
+
+

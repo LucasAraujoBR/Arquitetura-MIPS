@@ -12,4 +12,4 @@ def convert_bin(list_hex):
     list_bins.append(instruction_bin)
   return list_bins
 
-print(convert_bin(instructions))
+

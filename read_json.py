@@ -1,7 +1,6 @@
 import json 
 import os
-import shutil
-from datetime import date
+
 
 def leitura_json():
     #Encontra o nome do arquivo
