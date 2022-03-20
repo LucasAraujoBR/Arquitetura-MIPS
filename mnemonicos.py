@@ -78,6 +78,7 @@ type_i_instructions = {
     "001010": "slti",
     "101011": "sw",
     "001110": "xori",
+    "101000":"sb"
 }
 indexing = {
     "R": [26, 21, 16, 11, 6, 5],
@@ -85,9 +86,18 @@ indexing = {
     "I": [26, 21, 16]
 }
 
+instructions_r_format_rs_rt = ("mult", "multu", "div", "divu")
+instructions_r_format_rt_rd = ("mfco")
+instructions_r_format_rd = ("mfhi", "mflo")
+instructions_r_format_rs = ("jr")
+instructions_r_format_shamt = ("sll", "srl")
+
+
+instructions_i_format_rs_rt_imm = ("addi", "addiu", "andi", "ori", "slti", "sltiu")
+instructions_i_format_rt_imm = ("lw", "sw", "lbu", "sb")
 
 def instruction_type_definition(binary):
-    decimal_value = int(binary[:6])
+    decimal_value = int(binary[:6], 2)
     if decimal_value == 0:
         return "R"
     elif decimal_value in [2, 3]:
