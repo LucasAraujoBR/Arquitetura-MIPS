@@ -49,26 +49,35 @@ def assembly(binary, type_instruction):
             print(f"{dictionary_instruction['function']} {dictionary_instruction['operando1']}, {dictionary_instruction['operando2']}, {dictionary_instruction['operando3']}")
 
     elif type_instruction == "J":
-        pass
+        dictionary_instruction["funct"] = mnemonicos.type_j_instructions[f"{binary[0:6]}"]
+        dictionary_instruction["operando1"] = int(binary[6:], 2)
+        print(f"{dictionary_instruction['funct']} {dictionary_instruction['operando1']}")
+
+
+
     elif type_instruction == "I":
         dictionary_hex_separator["instruction"] = mnemonicos.type_i_instructions[f"{binary[0:6]}"]
         dictionary_hex_separator["rs"] = mnemonicos.registers[f"{binary[6:11]}"]
         dictionary_hex_separator["rt"] = mnemonicos.registers[f"{binary[11:16]}"]
-        dictionary_hex_separator["immediate"] = int(str(binary[16:]), 2)
+        dictionary_hex_separator["immediate"] = convert_int(binary[16:])
 
         if structure_search_type_rs_rt_imm(dictionary_hex_separator["instruction"]):
             dictionary_instruction["function"] = dictionary_hex_separator["instruction"]
-            dictionary_instruction["operando1"] = dictionary_hex_separator["rs"]
-            dictionary_instruction["operando2"] = dictionary_hex_separator["rt"]
+            dictionary_instruction["operando1"] = dictionary_hex_separator["rt"]
+            dictionary_instruction["operando2"] = dictionary_hex_separator["rs"]
             dictionary_instruction["operando3"] = dictionary_hex_separator["immediate"]
             print(f"{dictionary_instruction['function']} {dictionary_instruction['operando1']}, {dictionary_instruction['operando2']}, {dictionary_instruction['operando3']}")
-        elif structure_search_type_rt_imm(dictionary_hex_separator["instruction"]):
+        elif structure_search_type_rt_imm_parent(dictionary_hex_separator["instruction"]):
             dictionary_instruction["function"] = dictionary_hex_separator["instruction"]
             dictionary_instruction["operando1"] = dictionary_hex_separator["rt"]
             dictionary_instruction["operando2"] = dictionary_hex_separator["immediate"]
             dictionary_instruction["operando3"] = dictionary_hex_separator["rs"]
-            print(
-                f"{dictionary_instruction['function']} {dictionary_instruction['operando1']}, {dictionary_instruction['operando2']}({dictionary_instruction['operando3']})")
+            print(f"{dictionary_instruction['function']} {dictionary_instruction['operando1']}, {dictionary_instruction['operando2']}({dictionary_instruction['operando3']})")
+        elif structure_search_type_rt_imm(dictionary_hex_separator["instruction"]):
+            dictionary_instruction["function"] = dictionary_hex_separator["instruction"]
+            dictionary_instruction["operando1"] = dictionary_hex_separator["rt"]
+            dictionary_instruction["operando2"] = dictionary_hex_separator["immediate"]
+            print(f"{dictionary_instruction['function']} {dictionary_instruction['operando1']}, {dictionary_instruction['operando2']}")
 
 
 def structure_search_type_rs_rt(funct_value):
@@ -100,7 +109,32 @@ def structure_search_type_rs_rt_imm(funct_value):
     return False
 
 
+def structure_search_type_rt_imm_parent(funct_value):
+    if funct_value in mnemonicos.instructions_i_format_rt_imm_parent:
+        return True
+    return False
+
+
 def structure_search_type_rt_imm(funct_value):
     if funct_value in mnemonicos.instructions_i_format_rt_imm:
         return True
     return False
+
+
+def convert_int(binary):
+    final_bin = list()
+    if binary[0] == "0":
+        return int(binary, 2)
+    else:
+        valor = int(binary, 2) - 1
+        # print(binary, valor)
+        binary = bin(valor).replace("0b", "")
+        if len(binary) < 16:
+            binary = '1'+binary
+        for i in range(0, 16):
+            if binary[i] == "0":
+                final_bin.append('1')
+            else:
+                final_bin.append('0')
+
+        return -int(''.join(final_bin), 2)
