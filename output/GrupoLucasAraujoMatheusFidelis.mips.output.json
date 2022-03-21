@@ -1,0 +1,576 @@
+{
+    "instrução_1": {
+        "hex": "0x20080000",
+        "text": "{}",
+        "regs": {},
+        "mem": {},
+        "stdout": {}
+    },
+    "instrução_2": {
+        "hex": "0x20090003",
+        "text": "{}",
+        "regs": {},
+        "mem": {},
+        "stdout": {}
+    },
+    "instrução_3": {
+        "hex": "0x200a0004",
+        "text": "{}",
+        "regs": {},
+        "mem": {},
+        "stdout": {}
+    },
+    "instrução_4": {
+        "hex": "0x200bfffd",
+        "text": "{}",
+        "regs": {},
+        "mem": {},
+        "stdout": {}
+    },
+    "instrução_5": {
+        "hex": "0x200cfffc",
+        "text": "{}",
+        "regs": {},
+        "mem": {},
+        "stdout": {}
+    },
+    "instrução_6": {
+        "hex": "0x2014fc18",
+        "text": "{}",
+        "regs": {},
+        "mem": {},
+        "stdout": {}
+    },
+    "instrução_7": {
+        "hex": "0x3c0d7fff",
+        "text": "{}",
+        "regs": {},
+        "mem": {},
+        "stdout": {}
+    },
+    "instrução_8": {
+        "hex": "0x35adffff",
+        "text": "{}",
+        "regs": {},
+        "mem": {},
+        "stdout": {}
+    },
+    "instrução_9": {
+        "hex": "0x3c0e8000",
+        "text": "{}",
+        "regs": {},
+        "mem": {},
+        "stdout": {}
+    },
+    "instrução_10": {
+        "hex": "0x3c0f0040",
+        "text": "{}",
+        "regs": {},
+        "mem": {},
+        "stdout": {}
+    },
+    "instrução_11": {
+        "hex": "0x35ef0130",
+        "text": "{}",
+        "regs": {},
+        "mem": {},
+        "stdout": {}
+    },
+    "instrução_12": {
+        "hex": "0x3c100044",
+        "text": "{}",
+        "regs": {},
+        "mem": {},
+        "stdout": {}
+    },
+    "instrução_13": {
+        "hex": "0x3c111001",
+        "text": "{}",
+        "regs": {},
+        "mem": {},
+        "stdout": {}
+    },
+    "instrução_14": {
+        "hex": "0x3c121001",
+        "text": "{}",
+        "regs": {},
+        "mem": {},
+        "stdout": {}
+    },
+    "instrução_15": {
+        "hex": "0x36520004",
+        "text": "{}",
+        "regs": {},
+        "mem": {},
+        "stdout": {}
+    },
+    "instrução_16": {
+        "hex": "0x3c131001",
+        "text": "{}",
+        "regs": {},
+        "mem": {},
+        "stdout": {}
+    },
+    "instrução_17": {
+        "hex": "0x367301fc",
+        "text": "{}",
+        "regs": {},
+        "mem": {},
+        "stdout": {}
+    },
+    "instrução_18": {
+        "hex": "0x016c4020",
+        "text": "{'function': 'add', 'register_resposta': '$8', 'register_font1': '$11', 'register_font2': '$12'}",
+        "regs": {},
+        "mem": {},
+        "stdout": {}
+    },
+    "instrução_19": {
+        "hex": "0x016c4022",
+        "text": "{'function': 'sub', 'register_resposta': '$8', 'register_font1': '$11', 'register_font2': '$12'}",
+        "regs": {},
+        "mem": {},
+        "stdout": {}
+    },
+    "instrução_20": {
+        "hex": "0x012a402a",
+        "text": "{'function': 'slt', 'register_resposta': '$8', 'register_font1': '$9', 'register_font2': '$10'}",
+        "regs": {},
+        "mem": {},
+        "stdout": {}
+    },
+    "instrução_21": {
+        "hex": "0x016c4024",
+        "text": "{'function': 'and', 'register_resposta': '$8', 'register_font1': '$11', 'register_font2': '$12'}",
+        "regs": {},
+        "mem": {},
+        "stdout": {}
+    },
+    "instrução_22": {
+        "hex": "0x016c4025",
+        "text": "{'function': 'or', 'register_resposta': '$8', 'register_font1': '$11', 'register_font2': '$12'}",
+        "regs": {},
+        "mem": {},
+        "stdout": {}
+    },
+    "instrução_23": {
+        "hex": "0x016c4026",
+        "text": "{'function': 'xor', 'register_resposta': '$8', 'register_font1': '$11', 'register_font2': '$12'}",
+        "regs": {},
+        "mem": {},
+        "stdout": {}
+    },
+    "instrução_24": {
+        "hex": "0x016c4027",
+        "text": "{'function': 'nor', 'register_resposta': '$8', 'register_font1': '$11', 'register_font2': '$12'}",
+        "regs": {},
+        "mem": {},
+        "stdout": {}
+    },
+    "instrução_25": {
+        "hex": "0x016a4021",
+        "text": "{'function': 'addu', 'register_resposta': '$8', 'register_font1': '$11', 'register_font2': '$10'}",
+        "regs": {},
+        "mem": {},
+        "stdout": {}
+    },
+    "instrução_26": {
+        "hex": "0x016a4023",
+        "text": "{'function': 'subu', 'register_resposta': '$8', 'register_font1': '$11', 'register_font2': '$10'}",
+        "regs": {},
+        "mem": {},
+        "stdout": {}
+    },
+    "instrução_27": {
+        "hex": "0x01c94023",
+        "text": "{'function': 'subu', 'register_resposta': '$8', 'register_font1': '$14', 'register_font2': '$9'}",
+        "regs": {},
+        "mem": {},
+        "stdout": {}
+    },
+    "instrução_28": {
+        "hex": "0x016a0018",
+        "text": "{'function': 'mult', 'register_resposta': '$0', 'register_font1': '$11', 'register_font2': '$10'}",
+        "regs": {},
+        "mem": {},
+        "stdout": {}
+    },
+    "instrução_29": {
+        "hex": "0x016c0018",
+        "text": "{'function': 'mult', 'register_resposta': '$0', 'register_font1': '$11', 'register_font2': '$12'}",
+        "regs": {},
+        "mem": {},
+        "stdout": {}
+    },
+    "instrução_30": {
+        "hex": "0x00004010",
+        "text": "{'function': 'mfhi', 'register_resposta': '$8', 'register_font1': '$0', 'register_font2': '$0'}",
+        "regs": {},
+        "mem": {},
+        "stdout": {}
+    },
+    "instrução_31": {
+        "hex": "0x00004012",
+        "text": "{'function': 'mflo', 'register_resposta': '$8', 'register_font1': '$0', 'register_font2': '$0'}",
+        "regs": {},
+        "mem": {},
+        "stdout": {}
+    },
+    "instrução_32": {
+        "hex": "0x012a0019",
+        "text": "{'function': 'multu', 'register_resposta': '$0', 'register_font1': '$9', 'register_font2': '$10'}",
+        "regs": {},
+        "mem": {},
+        "stdout": {}
+    },
+    "instrução_33": {
+        "hex": "0x014b0019",
+        "text": "{'function': 'multu', 'register_resposta': '$0', 'register_font1': '$10', 'register_font2': '$11'}",
+        "regs": {},
+        "mem": {},
+        "stdout": {}
+    },
+    "instrução_34": {
+        "hex": "0x016c0019",
+        "text": "{'function': 'multu', 'register_resposta': '$0', 'register_font1': '$11', 'register_font2': '$12'}",
+        "regs": {},
+        "mem": {},
+        "stdout": {}
+    },
+    "instrução_35": {
+        "hex": "0x016a001a",
+        "text": "{'function': 'div', 'register_resposta': '$0', 'register_font1': '$11', 'register_font2': '$10'}",
+        "regs": {},
+        "mem": {},
+        "stdout": {}
+    },
+    "instrução_36": {
+        "hex": "0x016c001a",
+        "text": "{'function': 'div', 'register_resposta': '$0', 'register_font1': '$11', 'register_font2': '$12'}",
+        "regs": {},
+        "mem": {},
+        "stdout": {}
+    },
+    "instrução_37": {
+        "hex": "0x012a001b",
+        "text": "{'function': 'divu', 'register_resposta': '$0', 'register_font1': '$9', 'register_font2': '$10'}",
+        "regs": {},
+        "mem": {},
+        "stdout": {}
+    },
+    "instrução_38": {
+        "hex": "0x014b001b",
+        "text": "{'function': 'divu', 'register_resposta': '$0', 'register_font1': '$10', 'register_font2': '$11'}",
+        "regs": {},
+        "mem": {},
+        "stdout": {}
+    },
+    "instrução_39": {
+        "hex": "0x016c001b",
+        "text": "{'function': 'divu', 'register_resposta': '$0', 'register_font1': '$11', 'register_font2': '$12'}",
+        "regs": {},
+        "mem": {},
+        "stdout": {}
+    },
+    "instrução_40": {
+        "hex": "0x00144043",
+        "text": "{'function': 'sra', 'register_resposta': '$8', 'register_font1': '$0', 'register_font2': '$20'}",
+        "regs": {},
+        "mem": {},
+        "stdout": {}
+    },
+    "instrução_41": {
+        "hex": "0x00144283",
+        "text": "{'function': 'sra', 'register_resposta': '$8', 'register_font1': '$0', 'register_font2': '$20'}",
+        "regs": {},
+        "mem": {},
+        "stdout": {}
+    },
+    "instrução_42": {
+        "hex": "0x00144700",
+        "text": "{'function': 'sll', 'register_resposta': '$8', 'register_font1': '$0', 'register_font2': '$20'}",
+        "regs": {},
+        "mem": {},
+        "stdout": {}
+    },
+    "instrução_43": {
+        "hex": "0x00144780",
+        "text": "{'function': 'sll', 'register_resposta': '$8', 'register_font1': '$0', 'register_font2': '$20'}",
+        "regs": {},
+        "mem": {},
+        "stdout": {}
+    },
+    "instrução_44": {
+        "hex": "0x00144702",
+        "text": "{'function': 'srl', 'register_resposta': '$8', 'register_font1': '$0', 'register_font2': '$20'}",
+        "regs": {},
+        "mem": {},
+        "stdout": {}
+    },
+    "instrução_45": {
+        "hex": "0x001447c2",
+        "text": "{'function': 'srl', 'register_resposta': '$8', 'register_font1': '$0', 'register_font2': '$20'}",
+        "regs": {},
+        "mem": {},
+        "stdout": {}
+    },
+    "instrução_46": {
+        "hex": "0x01344004",
+        "text": "{'function': 'sllv', 'register_resposta': '$8', 'register_font1': '$9', 'register_font2': '$20'}",
+        "regs": {},
+        "mem": {},
+        "stdout": {}
+    },
+    "instrução_47": {
+        "hex": "0x01344006",
+        "text": "{'function': 'srlv', 'register_resposta': '$8', 'register_font1': '$9', 'register_font2': '$20'}",
+        "regs": {},
+        "mem": {},
+        "stdout": {}
+    },
+    "instrução_48": {
+        "hex": "0x01344007",
+        "text": "{'function': 'srav', 'register_resposta': '$8', 'register_font1': '$9', 'register_font2': '$20'}",
+        "regs": {},
+        "mem": {},
+        "stdout": {}
+    },
+    "instrução_49": {
+        "hex": "0x2568fffc",
+        "text": "{}",
+        "regs": {},
+        "mem": {},
+        "stdout": {}
+    },
+    "instrução_50": {
+        "hex": "0x25a80001",
+        "text": "{}",
+        "regs": {},
+        "mem": {},
+        "stdout": {}
+    },
+    "instrução_51": {
+        "hex": "0x2928fffc",
+        "text": "{}",
+        "regs": {},
+        "mem": {},
+        "stdout": {}
+    },
+    "instrução_52": {
+        "hex": "0x312803e9",
+        "text": "{}",
+        "regs": {},
+        "mem": {},
+        "stdout": {}
+    },
+    "instrução_53": {
+        "hex": "0x392803e9",
+        "text": "{}",
+        "regs": {},
+        "mem": {},
+        "stdout": {}
+    },
+    "instrução_54": {
+        "hex": "0xa22f0003",
+        "text": "{}",
+        "regs": {},
+        "mem": {},
+        "stdout": {}
+    },
+    "instrução_55": {
+        "hex": "0x82280003",
+        "text": "{}",
+        "regs": {},
+        "mem": {},
+        "stdout": {}
+    },
+    "instrução_56": {
+        "hex": "0x92280003",
+        "text": "{}",
+        "regs": {},
+        "mem": {},
+        "stdout": {}
+    },
+    "instrução_57": {
+        "hex": "0xae2f0000",
+        "text": "{}",
+        "regs": {},
+        "mem": {},
+        "stdout": {}
+    },
+    "instrução_58": {
+        "hex": "0x8e280000",
+        "text": "{}",
+        "regs": {},
+        "mem": {},
+        "stdout": {}
+    },
+    "instrução_59": {
+        "hex": "0xae4e0000",
+        "text": "{}",
+        "regs": {},
+        "mem": {},
+        "stdout": {}
+    },
+    "instrução_60": {
+        "hex": "0x8e480000",
+        "text": "{}",
+        "regs": {},
+        "mem": {},
+        "stdout": {}
+    },
+    "instrução_61": {
+        "hex": "0xae6f0000",
+        "text": "{}",
+        "regs": {},
+        "mem": {},
+        "stdout": {}
+    },
+    "instrução_62": {
+        "hex": "0x8e680000",
+        "text": "{}",
+        "regs": {},
+        "mem": {},
+        "stdout": {}
+    },
+    "instrução_63": {
+        "hex": "0x20080000",
+        "text": "{}",
+        "regs": {},
+        "mem": {},
+        "stdout": {}
+    },
+    "instrução_64": {
+        "hex": "0x05000005",
+        "text": "{}",
+        "regs": {},
+        "mem": {},
+        "stdout": {}
+    },
+    "instrução_65": {
+        "hex": "0x05600004",
+        "text": "{}",
+        "regs": {},
+        "mem": {},
+        "stdout": {}
+    },
+    "instrução_66": {
+        "hex": "0x21080001",
+        "text": "{}",
+        "regs": {},
+        "mem": {},
+        "stdout": {}
+    },
+    "instrução_67": {
+        "hex": "0x11090005",
+        "text": "{}",
+        "regs": {},
+        "mem": {},
+        "stdout": {}
+    },
+    "instrução_68": {
+        "hex": "0x11080004",
+        "text": "{}",
+        "regs": {},
+        "mem": {},
+        "stdout": {}
+    },
+    "instrução_69": {
+        "hex": "0x21080001",
+        "text": "{}",
+        "regs": {},
+        "mem": {},
+        "stdout": {}
+    },
+    "instrução_70": {
+        "hex": "0x1508fffc",
+        "text": "{}",
+        "regs": {},
+        "mem": {},
+        "stdout": {}
+    },
+    "instrução_71": {
+        "hex": "0x1509fffb",
+        "text": "{}",
+        "regs": {},
+        "mem": {},
+        "stdout": {}
+    },
+    "instrução_72": {
+        "hex": "0x21080001",
+        "text": "{}",
+        "regs": {},
+        "mem": {},
+        "stdout": {}
+    },
+    "instrução_73": {
+        "hex": "0x01e00008",
+        "text": "{'function': 'jr', 'register_resposta': '$0', 'register_font1': '$15', 'register_font2': '$0'}",
+        "regs": {},
+        "mem": {},
+        "stdout": {}
+    },
+    "instrução_74": {
+        "hex": "0x21080001",
+        "text": "{}",
+        "regs": {},
+        "mem": {},
+        "stdout": {}
+    },
+    "instrução_75": {
+        "hex": "0x0c10004e",
+        "text": "{}",
+        "regs": {},
+        "mem": {},
+        "stdout": {}
+    },
+    "instrução_76": {
+        "hex": "0x21080001",
+        "text": "{}",
+        "regs": {},
+        "mem": {},
+        "stdout": {}
+    },
+    "instrução_77": {
+        "hex": "0x0810004a",
+        "text": "{}",
+        "regs": {},
+        "mem": {},
+        "stdout": {}
+    },
+    "instrução_78": {
+        "hex": "0x21080001",
+        "text": "{}",
+        "regs": {},
+        "mem": {},
+        "stdout": {}
+    },
+    "instrução_79": {
+        "hex": "0x0000000c",
+        "text": "{'function': 'syscall', 'register_resposta': '$0', 'register_font1': '$0', 'register_font2': '$0'}",
+        "regs": {},
+        "mem": {},
+        "stdout": {}
+    },
+    "instrução_80": {
+        "hex": "0x21a80001",
+        "text": "{}",
+        "regs": {},
+        "mem": {},
+        "stdout": {}
+    },
+    "instrução_81": {
+        "hex": "0x01a94020",
+        "text": "{'function': 'add', 'register_resposta': '$8', 'register_font1': '$13', 'register_font2': '$9'}",
+        "regs": {},
+        "mem": {},
+        "stdout": {}
+    },
+    "instrução_82": {
+        "hex": "0x01ab4022",
+        "text": "{'function': 'sub', 'register_resposta': '$8', 'register_font1': '$13', 'register_font2': '$11'}",
+        "regs": {},
+        "mem": {},
+        "stdout": {}
+    }
+}

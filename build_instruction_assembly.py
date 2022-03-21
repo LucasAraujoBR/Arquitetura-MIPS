@@ -1,10 +1,11 @@
 import mnemonicos
-import opcode
 
 def leitura_listagem_bins(binary_list):
+    lista = []
     for i in binary_list:
         instruction_type = mnemonicos.instruction_type_definition(i)
-        assembly(i,instruction_type)
+        lista.append(assembly(i,instruction_type))
+    return lista
 
 def assembly(binary, type_instruction):
     dictionay_instruction = dict()
@@ -13,9 +14,12 @@ def assembly(binary, type_instruction):
         dictionay_instruction["register_resposta"] = mnemonicos.registers[f"{binary[16:21]}"]
         dictionay_instruction["register_font1"] = mnemonicos.registers[f"{binary[6:11]}"]
         dictionay_instruction["register_font2"] = mnemonicos.registers[f"{binary[11:16]}"]
-        print(dictionay_instruction)
+        #print(dictionay_instruction)
     elif type_instruction == "J":
         pass
     elif type_instruction == "I":
         pass
+    return dictionay_instruction
+
+
 

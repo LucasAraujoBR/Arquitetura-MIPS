@@ -26,4 +26,5 @@ def leitura_json():
     else:
         print('Não possui arquivos na pasta de input.')
     return lista_hexadecimais
-        
+
+
