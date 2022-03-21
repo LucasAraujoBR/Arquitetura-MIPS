@@ -3,7 +3,6 @@ from read_json import leitura_json
 from hex_to_bin import convert_bin
 from build_instruction_assembly import leitura_listagem_bins
 from funcoes import cria_json
-import json
 
 # #Leitura json
 lista_hexadecimais = leitura_json()
