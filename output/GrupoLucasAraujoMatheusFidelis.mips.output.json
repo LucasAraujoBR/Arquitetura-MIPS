@@ -365,7 +365,7 @@
     },
     "instrução_53": {
         "hex": "0x392803e9",
-        "text": {},
+        "text": "xori $8, $9, 1001",
         "regs": {},
         "mem": {},
         "stdout": {}
@@ -379,7 +379,7 @@
     },
     "instrução_55": {
         "hex": "0x82280003",
-        "text": {},
+        "text": "lb $8, 3, $17",
         "regs": {},
         "mem": {},
         "stdout": {}
@@ -442,14 +442,14 @@
     },
     "instrução_64": {
         "hex": "0x05000005",
-        "text": {},
+        "text": "bltz $0, 5",
         "regs": {},
         "mem": {},
         "stdout": {}
     },
     "instrução_65": {
         "hex": "0x05600004",
-        "text": {},
+        "text": "bltz $0, 4",
         "regs": {},
         "mem": {},
         "stdout": {}
@@ -463,14 +463,14 @@
     },
     "instrução_67": {
         "hex": "0x11090005",
-        "text": {},
+        "text": "beq $8, $9, 5",
         "regs": {},
         "mem": {},
         "stdout": {}
     },
     "instrução_68": {
         "hex": "0x11080004",
-        "text": {},
+        "text": "beq $8, $8, 4",
         "regs": {},
         "mem": {},
         "stdout": {}
@@ -484,14 +484,14 @@
     },
     "instrução_70": {
         "hex": "0x1508fffc",
-        "text": {},
+        "text": "bne $8, $8, -4",
         "regs": {},
         "mem": {},
         "stdout": {}
     },
     "instrução_71": {
         "hex": "0x1509fffb",
-        "text": {},
+        "text": "bne $8, $9, -5",
         "regs": {},
         "mem": {},
         "stdout": {}

@@ -93,9 +93,10 @@ instructions_r_format_rs = ("jr")
 instructions_r_format_shamt = ("sll", "srl")
 
 
-instructions_i_format_rs_rt_imm = ("addi", "addiu", "andi", "ori", "slti", "sltiu")
-instructions_i_format_rt_imm_parent = ("lw", "sw", "lbu", "sb")
-instructions_i_format_rt_imm = ("lui")
+instructions_i_format_rt_rs_imm = ("addi", "addiu", "andi", "ori", "slti", "sltiu", "xori")
+instructions_i_format_rt_imm_parent = ("lw", "sw", "lbu", "sb", "lb")
+instructions_i_format_rt_imm = ("lui", "bltz")
+instructions_i_format_rs_rt_imm = ("beq", "bne")
 
 def instruction_type_definition(binary):
     decimal_value = int(binary[:6], 2)

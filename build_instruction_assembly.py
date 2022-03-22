@@ -69,13 +69,12 @@ def assembly(binary, type_instruction):
             f"{dictionary_instruction['funct']} {dictionary_instruction['operando1']}")
 
     elif type_instruction == "I":
-        dictionary_hex_separator[
-            "instruction"] = mnemonicos.type_i_instructions[f"{binary[0:6]}"]
+        dictionary_hex_separator["instruction"] = mnemonicos.type_i_instructions[f"{binary[0:6]}"]
         dictionary_hex_separator["rs"] = mnemonicos.registers[f"{binary[6:11]}"]
         dictionary_hex_separator["rt"] = mnemonicos.registers[f"{binary[11:16]}"]
         dictionary_hex_separator["immediate"] = convert_int(binary[16:])
 
-        if structure_search_type_rs_rt_imm(dictionary_hex_separator["instruction"]):
+        if structure_search_type_rt_rs_imm(dictionary_hex_separator["instruction"]):
             dictionary_instruction["function"] = dictionary_hex_separator["instruction"]
             dictionary_instruction["operando1"] = dictionary_hex_separator["rt"]
             dictionary_instruction["operando2"] = dictionary_hex_separator["rs"]
@@ -93,8 +92,15 @@ def assembly(binary, type_instruction):
             dictionary_instruction["function"] = dictionary_hex_separator["instruction"]
             dictionary_instruction["operando1"] = dictionary_hex_separator["rt"]
             dictionary_instruction["operando2"] = dictionary_hex_separator["immediate"]
+            print(f"{dictionary_instruction['function']} {dictionary_instruction['operando1']}, {dictionary_instruction['operando2']}")
+
+        elif structure_search_type_rs_rt_imm(dictionary_hex_separator["instruction"]):
+            dictionary_instruction["function"] = dictionary_hex_separator["instruction"]
+            dictionary_instruction["operando1"] = dictionary_hex_separator["rs"]
+            dictionary_instruction["operando2"] = dictionary_hex_separator["rt"]
+            dictionary_instruction["operando3"] = dictionary_hex_separator["immediate"]
             print(
-                f"{dictionary_instruction['function']} {dictionary_instruction['operando1']}, {dictionary_instruction['operando2']}")
+                f"{dictionary_instruction['function']} {dictionary_instruction['operando1']}, {dictionary_instruction['operando2']}, {dictionary_instruction['operando3']}")
     return dictionary_instruction
 
 
@@ -122,8 +128,8 @@ def structure_search_type_rs(funct_value):
     return False
 
 
-def structure_search_type_rs_rt_imm(funct_value):
-    if funct_value in mnemonicos.instructions_i_format_rs_rt_imm:
+def structure_search_type_rt_rs_imm(funct_value):
+    if funct_value in mnemonicos.instructions_i_format_rt_rs_imm:
         return True
     return False
 
@@ -139,6 +145,10 @@ def structure_search_type_rt_imm(funct_value):
         return True
     return False
 
+def structure_search_type_rs_rt_imm(funct_value):
+    if funct_value in mnemonicos.instructions_i_format_rs_rt_imm:
+        return True
+    return False
 
 def convert_int(binary):
     final_bin = list()
