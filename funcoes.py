@@ -40,7 +40,7 @@ def novo_json(lista_hex, dict_mips):
                 aux = {
                     f"instrução_{contador}": {
                         "hex": f"{lista_hex[x]}",
-                        "text": f" {temp_json[function]}"+f", {temp_json['operando1']}",
+                        "text": f" {temp_json[function]}"+f" {temp_json['operando1']}",
                         "regs": {},
                         "mem": {},
                         "stdout": {}
@@ -50,7 +50,7 @@ def novo_json(lista_hex, dict_mips):
                 aux = {
                     f"instrução_{contador}": {
                         "hex": f"{lista_hex[x]}",
-                        "text": f"{temp_json['function']}"+f", {temp_json['operando1']}"+f", {temp_json['operando2']}",
+                        "text": f"{temp_json['function']}"+f" {temp_json['operando1']}"+f", {temp_json['operando2']}",
                         "regs": {},
                         "mem": {},
                         "stdout": {}
@@ -60,7 +60,7 @@ def novo_json(lista_hex, dict_mips):
                 aux = {
                     f"instrução_{contador}": {
                         "hex": f"{lista_hex[x]}",
-                        "text": f"{temp_json['function']}"+f", {temp_json['operando1']}"+f", {temp_json['operando2']}" + f", {temp_json['operando3']}",
+                        "text": f"{temp_json['function']}"+f" {temp_json['operando1']}"+f", {temp_json['operando2']}" + f", {temp_json['operando3']}",
                         "regs": {},
                         "mem": {},
                         "stdout": {}
