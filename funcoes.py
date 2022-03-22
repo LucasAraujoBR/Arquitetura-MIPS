@@ -81,7 +81,7 @@ def novo_json(lista_hex, dict_mips):
     return json_formatado
 
 
-def cria_json(lista_hex, lista_mips):
+def cria_json(lista_hex, lista_mips,nome):
     cur_path = os.path.dirname(__file__)
     lista_arquivos = [
         arquivo
@@ -91,7 +91,7 @@ def cria_json(lista_hex, lista_mips):
     print(lista_arquivos)
     data = {}
     if len(lista_mips) > 0:
-        nome_arquivo = 'GrupoLucasAraujoMatheusFidelis.mips.output'
+        nome_arquivo = f'GrupoLucasAraujoMatheusFidelis.{nome}.output'
         caminho_arquivo = f"{cur_path}/output/{nome_arquivo}.json"
         print(caminho_arquivo)
         if nome_arquivo in lista_arquivos:

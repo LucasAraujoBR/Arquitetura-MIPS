@@ -1,8 +1,25 @@
 import json 
 import os
 
+def trata_nome_algoritmo(lista):
+    nomes = []
+    for x in range(len(lista)):
+        aux = str(lista[x])
+        lista2 = aux.split(".")
+        nomes.append(lista2[0])
+    return nomes
 
-def leitura_json():
+def nome_algoritmo():
+    cur_path = os.path.dirname(__file__)
+    lista_arquivos = [
+        arquivo
+        for arquivo in os.listdir(f"{cur_path}/input/")
+        if arquivo.endswith(".json")
+        ]
+    a = trata_nome_algoritmo(lista_arquivos)
+    return a
+
+def leitura_json(nome):
     #Encontra o nome do arquivo
     cur_path = os.path.dirname(__file__)
     lista_arquivos = [
@@ -10,10 +27,8 @@ def leitura_json():
         for arquivo in os.listdir(f"{cur_path}/input/")
         if arquivo.endswith(".json")
         ]
-    print(lista_arquivos)
-    nome_arquivo = str(lista_arquivos[0])
+    nome_arquivo = str(nome+".input.json")
     caminho_arquivo = f"{cur_path}/input/{nome_arquivo}"
-    print(caminho_arquivo)
     lista_hexadecimais = []
     #Abre o arquivo nomeado e executa sua leitura, transformando seus dados numa lista de hexadecimais
     if len(lista_arquivos)>0:
@@ -26,5 +41,7 @@ def leitura_json():
     else:
         print('Não possui arquivos na pasta de input.')
     return lista_hexadecimais
+
+
 
 
