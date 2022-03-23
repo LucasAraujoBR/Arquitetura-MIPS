@@ -61,6 +61,7 @@ def assembly(binary, type_instruction):
                 f"{dictionary_instruction['function']} {dictionary_instruction['operando1']}, {dictionary_instruction['operando2']}, {dictionary_instruction['operando3']}")
         elif dictionary_hex_separator["funct"] == "syscall":
             dictionary_instruction["function"] = dictionary_hex_separator["funct"]
+
             print(f"{dictionary_instruction['function']}")
         else:
             dictionary_instruction["function"] = dictionary_hex_separator["funct"]

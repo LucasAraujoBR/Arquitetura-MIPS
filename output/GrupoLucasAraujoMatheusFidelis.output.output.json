@@ -203,22 +203,18 @@
         "stdout": {}
     },
     {
-        "instrução_30": {
             "hex": "0x00004010",
             "text": "mfhi $8",
             "regs": {},
             "mem": {},
             "stdout": {}
-        }
     },
     {
-        "instrução_31": {
             "hex": "0x00004012",
             "text": "mflo $8",
             "regs": {},
             "mem": {},
             "stdout": {}
-        }
     },
     {
         "hex": "0x012a0019",
@@ -508,13 +504,11 @@
         "stdout": {}
     },
     {
-        "instrução_73": {
             "hex": "0x01e00008",
             "text": "jr $15",
             "regs": {},
             "mem": {},
             "stdout": {}
-        }
     },
     {
         "hex": "0x21080001",
@@ -524,13 +518,11 @@
         "stdout": {}
     },
     {
-        "instrução_75": {
             "hex": "0x0c10004e",
             "text": "jal 1048654",
             "regs": {},
             "mem": {},
             "stdout": {}
-        }
     },
     {
         "hex": "0x21080001",
@@ -540,13 +532,11 @@
         "stdout": {}
     },
     {
-        "instrução_77": {
             "hex": "0x0810004a",
             "text": "j 1048650",
             "regs": {},
             "mem": {},
             "stdout": {}
-        }
     },
     {
         "hex": "0x21080001",
@@ -556,13 +546,11 @@
         "stdout": {}
     },
     {
-        "instrução_79": {
             "hex": "0x0000000c",
             "text": "syscall ",
             "regs": {},
             "mem": {},
             "stdout": {}
-        }
     },
     {
         "hex": "0x21a80001",
