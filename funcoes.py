@@ -29,7 +29,7 @@ def valida_nomeclatura(json):
 def novo_json(lista_hex, dict_mips):
     print(dict_mips)
     contador = 0
-    json_formatado = {}
+    json_formatado = []
     for x in range(len(lista_hex)):
         contador += 1
         temp_json = dict_mips["i_"+str(contador)]
@@ -38,50 +38,48 @@ def novo_json(lista_hex, dict_mips):
         if(function != ''):
             if('operando2' not in temp_json):
                 aux = {
-                    f"instrução_{contador}": {
-                        "hex": f"{lista_hex[x]}",
-                        "text": f" {temp_json[function]}"+f" {temp_json['operando1']}",
-                        "regs": {},
-                        "mem": {},
-                        "stdout": {}
-                    }
+
+                    "hex": f"{lista_hex[x]}",
+                    "text": f" {temp_json[function]}"+f" {temp_json['operando1']}",
+                    "regs": {},
+                    "mem": {},
+                    "stdout": {}
+
                 }
             elif('operando3' not in temp_json and 'operando2' in temp_json):
-                aux = {
-                    f"instrução_{contador}": {
-                        "hex": f"{lista_hex[x]}",
-                        "text": f"{temp_json['function']}"+f" {temp_json['operando1']}"+f", {temp_json['operando2']}",
-                        "regs": {},
-                        "mem": {},
-                        "stdout": {}
-                    }
+                aux ={
+
+                    "hex": f"{lista_hex[x]}",
+                    "text": f"{temp_json['function']}"+f" {temp_json['operando1']}"+f", {temp_json['operando2']}",
+                    "regs": {},
+                    "mem": {},
+                    "stdout": {}
+
                 }
             else:
                 aux = {
-                    f"instrução_{contador}": {
-                        "hex": f"{lista_hex[x]}",
-                        "text": f"{temp_json['function']}"+f" {temp_json['operando1']}"+f", {temp_json['operando2']}" + f", {temp_json['operando3']}",
-                        "regs": {},
-                        "mem": {},
-                        "stdout": {}
-                    }
+
+                    "hex": f"{lista_hex[x]}",
+                    "text": f"{temp_json['function']}"+f" {temp_json['operando1']}"+f", {temp_json['operando2']}" + f", {temp_json['operando3']}",
+                    "regs": {},
+                    "mem": {},
+                    "stdout": {}
+
                 }
         else:
             aux = {
-                    f"instrução_{contador}": {
-                        "hex": f"{lista_hex[x]}",
-                        "text": {},
-                        "regs": {},
-                        "mem": {},
-                        "stdout": {}
-                    }
-                }
+                "hex": f"{lista_hex[x]}",
+                "text": {},
+                "regs": {},
+                "mem": {},
+                "stdout": {}
+            }
 
-        json_formatado.update(aux)
+        json_formatado.append(aux)
     return json_formatado
 
 
-def cria_json(lista_hex, lista_mips,nome):
+def cria_json(lista_hex, lista_mips, nome):
     cur_path = os.path.dirname(__file__)
     lista_arquivos = [
         arquivo
@@ -98,10 +96,9 @@ def cria_json(lista_hex, lista_mips,nome):
             with open(caminho_arquivo, encoding="utf-8") as json_file_read:
                 data = json.load(json_file_read)
                 dictdict = novo_json(lista_hex, lista_mips)
-                data.update(dictdict)
                 json_file_read.close()
             with open(caminho_arquivo, "w", encoding="utf-8") as outfile:
-                json.dump(data, outfile,  indent=4, ensure_ascii=False)
+                json.dump(dictdict, outfile,  indent=4, ensure_ascii=False)
                 outfile.close()
         else:
             with open(caminho_arquivo, "w", encoding="utf-8") as outfile:
