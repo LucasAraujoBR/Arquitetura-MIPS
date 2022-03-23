@@ -5,9 +5,9 @@
 <p>* Lucas Araújo</p>
 <p>* Matheus Fidelis</p>
 
-
 <h3>Necessário para rodar o projeto:</h3>
 <ul>Python instalado na máquina</ul>
+<ul>colocar os arquivos de entrada na pasta input</ul>
 <ul>programa é executado no main.py</ul>
 
 
