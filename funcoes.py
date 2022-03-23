@@ -38,7 +38,7 @@ def novo_json(lista_hex, dict_mips):
         if(function != ''):
             if('operando2' not in temp_json):
                 aux = {
-<<<<<<< HEAD
+
                     f"instrução_{contador}": {
                         "hex": f"{lista_hex[x]}",
                         "text": f"{temp_json[function]}"+f" {temp_json['operando1']}",
@@ -46,15 +46,6 @@ def novo_json(lista_hex, dict_mips):
                         "mem": {},
                         "stdout": {}
                     }
-=======
-
-                    "hex": f"{lista_hex[x]}",
-                    "text": f" {temp_json[function]}"+f" {temp_json['operando1']}",
-                    "regs": {},
-                    "mem": {},
-                    "stdout": {}
-
->>>>>>> 949157fe5616c327e0c8926d136d601ea2bd8971
                 }
             elif('operando3' not in temp_json and 'operando2' in temp_json):
                 aux ={

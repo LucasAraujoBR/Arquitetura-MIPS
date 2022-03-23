@@ -92,7 +92,7 @@ instructions_r_format_rd = ("mfhi", "mflo")
 instructions_r_format_rs = ("jr")
 instructions_r_format_shamt = ("sll", "srl", "sra")
 instructions_r_format_rd_rt_rs = ("sllv", "srav", "srlv")
-
+instruction_syscall = ("syscall")
 
 instructions_i_format_rt_rs_imm = ("addi", "addiu", "andi", "ori", "slti", "sltiu", "xori")
 instructions_i_format_rt_imm_parent = ("lw", "sw", "lbu", "sb", "lb")

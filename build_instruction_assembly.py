@@ -47,6 +47,11 @@ def assembly(binary, type_instruction):
             dictionary_instruction["operando1"] = dictionary_hex_separator["rs"]
             print(
                 f"{dictionary_instruction['function']} {dictionary_instruction['operando1']}")
+        elif structure_search_type_rd_rt_rs(dictionary_hex_separator["funct"]):
+            dictionary_instruction["function"] = dictionary_hex_separator["funct"]
+            dictionary_instruction["operando1"] = dictionary_hex_separator["rd"]
+            dictionary_instruction["operando2"] = dictionary_hex_separator["rt"]
+            dictionary_instruction["operando3"] = dictionary_hex_separator["rs"]
         elif structure_search_type_shamt(dictionary_hex_separator["funct"]):
             dictionary_instruction["function"] = dictionary_hex_separator["funct"]
             dictionary_instruction["operando1"] = dictionary_hex_separator["rd"]
@@ -54,11 +59,9 @@ def assembly(binary, type_instruction):
             dictionary_instruction["operando3"] = dictionary_hex_separator["shamt"]
             print(
                 f"{dictionary_instruction['function']} {dictionary_instruction['operando1']}, {dictionary_instruction['operando2']}, {dictionary_instruction['operando3']}")
-        elif structure_search_type_rd_rt_rs(dictionary_hex_separator["funct"]):
+        elif dictionary_hex_separator["funct"] == "syscall":
             dictionary_instruction["function"] = dictionary_hex_separator["funct"]
-            dictionary_instruction["operando1"] = dictionary_hex_separator["rd"]
-            dictionary_instruction["operando2"] = dictionary_hex_separator["rt"]
-            dictionary_instruction["operando3"] = dictionary_hex_separator["rs"]
+            print(f"{dictionary_instruction['function']}")
         else:
             dictionary_instruction["function"] = dictionary_hex_separator["funct"]
             dictionary_instruction["operando1"] = dictionary_hex_separator["rd"]
@@ -106,6 +109,7 @@ def assembly(binary, type_instruction):
             dictionary_instruction["operando3"] = dictionary_hex_separator["immediate"]
             print(
                 f"{dictionary_instruction['function']} {dictionary_instruction['operando1']}, {dictionary_instruction['operando2']}, {dictionary_instruction['operando3']}")
+
     return dictionary_instruction
 
 
@@ -180,7 +184,6 @@ def convert_int(binary, tam):
             else:
                 final_bin.append('0')
 
-    if binary == "1000000000000000":
-        print(binary)
+
 
     return -int(''.join(final_bin), 2)
