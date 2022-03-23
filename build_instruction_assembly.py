@@ -23,7 +23,7 @@ def assembly(binary, type_instruction):
         dictionary_hex_separator["rd"] = mnemonicos.registers[f"{binary[16:21]}"]
         dictionary_hex_separator["rs"] = mnemonicos.registers[f"{binary[6:11]}"]
         dictionary_hex_separator["rt"] = mnemonicos.registers[f"{binary[11:16]}"]
-        dictionary_hex_separator["shamt"] = mnemonicos.registers[f"{binary[21:26]}"]
+        dictionary_hex_separator["shamt"] = int(binary[21:26], 2)
 
         if structure_search_type_rs_rt(dictionary_hex_separator["funct"]):
             dictionary_instruction["function"] = dictionary_hex_separator["funct"]
@@ -47,13 +47,21 @@ def assembly(binary, type_instruction):
             dictionary_instruction["operando1"] = dictionary_hex_separator["rs"]
             print(
                 f"{dictionary_instruction['function']} {dictionary_instruction['operando1']}")
+        elif structure_search_type_rd_rt_rs(dictionary_hex_separator["funct"]):
+            dictionary_instruction["function"] = dictionary_hex_separator["funct"]
+            dictionary_instruction["operando1"] = dictionary_hex_separator["rd"]
+            dictionary_instruction["operando2"] = dictionary_hex_separator["rt"]
+            dictionary_instruction["operando3"] = dictionary_hex_separator["rs"]
         elif structure_search_type_shamt(dictionary_hex_separator["funct"]):
             dictionary_instruction["function"] = dictionary_hex_separator["funct"]
             dictionary_instruction["operando1"] = dictionary_hex_separator["rd"]
-            dictionary_instruction["operando2"] = dictionary_hex_separator["rs"]
+            dictionary_instruction["operando2"] = dictionary_hex_separator["rt"]
             dictionary_instruction["operando3"] = dictionary_hex_separator["shamt"]
             print(
                 f"{dictionary_instruction['function']} {dictionary_instruction['operando1']}, {dictionary_instruction['operando2']}, {dictionary_instruction['operando3']}")
+        elif dictionary_hex_separator["funct"] == "syscall":
+            dictionary_instruction["function"] = dictionary_hex_separator["funct"]
+            print(f"{dictionary_instruction['function']}")
         else:
             dictionary_instruction["function"] = dictionary_hex_separator["funct"]
             dictionary_instruction["operando1"] = dictionary_hex_separator["rd"]
@@ -72,7 +80,7 @@ def assembly(binary, type_instruction):
         dictionary_hex_separator["instruction"] = mnemonicos.type_i_instructions[f"{binary[0:6]}"]
         dictionary_hex_separator["rs"] = mnemonicos.registers[f"{binary[6:11]}"]
         dictionary_hex_separator["rt"] = mnemonicos.registers[f"{binary[11:16]}"]
-        dictionary_hex_separator["immediate"] = convert_int(binary[16:])
+        dictionary_hex_separator["immediate"] = convert_int(binary[16:], 16)
 
         if structure_search_type_rt_rs_imm(dictionary_hex_separator["instruction"]):
             dictionary_instruction["function"] = dictionary_hex_separator["instruction"]
@@ -101,6 +109,7 @@ def assembly(binary, type_instruction):
             dictionary_instruction["operando3"] = dictionary_hex_separator["immediate"]
             print(
                 f"{dictionary_instruction['function']} {dictionary_instruction['operando1']}, {dictionary_instruction['operando2']}, {dictionary_instruction['operando3']}")
+
     return dictionary_instruction
 
 
@@ -149,21 +158,32 @@ def structure_search_type_rs_rt_imm(funct_value):
     if funct_value in mnemonicos.instructions_i_format_rs_rt_imm:
         return True
     return False
+def structure_search_type_rd_rt_rs(funct_value):
+    if funct_value in mnemonicos.instructions_r_format_rd_rt_rs:
+        return True
+    return False
 
-def convert_int(binary):
+def convert_int(binary, tam):
     final_bin = list()
+
+
     if binary[0] == "0":
         return int(binary, 2)
+
     else:
         valor = int(binary, 2) - 1
         # print(binary, valor)
         binary = bin(valor).replace("0b", "")
-        if len(binary) < 16:
-            binary = '1'+binary
-        for i in range(0, 16):
+
+        if len(binary) < tam:
+           binary = "0" + binary
+
+        for i in range(0, tam):
             if binary[i] == "0":
                 final_bin.append('1')
             else:
                 final_bin.append('0')
 
-        return -int(''.join(final_bin), 2)
+
+
+    return -int(''.join(final_bin), 2)
