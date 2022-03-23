@@ -36,31 +36,41 @@ def novo_json(lista_hex, dict_mips):
         # print(temp_json['function']+f" {temp_json['operando1']}",)
         function = valida_nomeclatura(temp_json)
         if(function != ''):
-            if('operando2' not in temp_json):
+            if(temp_json[function] == 'syscall'):
                 aux = {
 
                     "hex": f"{lista_hex[x]}",
-                    "text": f" {temp_json[function]}"+f" {temp_json['operando1']}",
+                    "text": f"{temp_json[function]}",
                     "regs": {},
                     "mem": {},
                     "stdout": {}
 
                 }
-            elif('operando3' not in temp_json and 'operando2' in temp_json):
-                aux ={
+            if('operando2' not in temp_json and temp_json[function] != 'syscall'):
+                aux = {
 
                     "hex": f"{lista_hex[x]}",
-                    "text": f"{temp_json['function']}"+f" {temp_json['operando1']}"+f", {temp_json['operando2']}",
+                    "text": f"{temp_json[function]}"+f" {temp_json['operando1']}",
                     "regs": {},
                     "mem": {},
                     "stdout": {}
 
                 }
-            else:
+            elif('operando3' not in temp_json and 'operando2' in temp_json and temp_json[function] != 'syscall'):
                 aux = {
 
                     "hex": f"{lista_hex[x]}",
-                    "text": f"{temp_json['function']}"+f" {temp_json['operando1']}"+f", {temp_json['operando2']}" + f", {temp_json['operando3']}",
+                    "text": f"{temp_json[function]}"+f" {temp_json['operando1']}"+f",{temp_json['operando2']}",
+                    "regs": {},
+                    "mem": {},
+                    "stdout": {}
+
+                }
+            elif(temp_json[function] != 'syscall'):
+                aux = {
+
+                    "hex": f"{lista_hex[x]}",
+                    "text": f"{temp_json[function]}"+f" {temp_json['operando1']}"+f",{temp_json['operando2']}" + f",{temp_json['operando3']}",
                     "regs": {},
                     "mem": {},
                     "stdout": {}
