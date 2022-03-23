@@ -57,7 +57,7 @@
     },
     "instrução_9": {
         "hex": "0x3c0e8000",
-        "text": "lui $14, 0",
+        "text": "lui $14, -32768",
         "regs": {},
         "mem": {},
         "stdout": {}
@@ -204,14 +204,14 @@
     },
     "instrução_30": {
         "hex": "0x00004010",
-        "text": " mfhi $8",
+        "text": "mfhi $8",
         "regs": {},
         "mem": {},
         "stdout": {}
     },
     "instrução_31": {
         "hex": "0x00004012",
-        "text": " mflo $8",
+        "text": "mflo $8",
         "regs": {},
         "mem": {},
         "stdout": {}
@@ -274,63 +274,63 @@
     },
     "instrução_40": {
         "hex": "0x00144043",
-        "text": "sra $8, $0, $20",
+        "text": "sra $8, $20, 1",
         "regs": {},
         "mem": {},
         "stdout": {}
     },
     "instrução_41": {
         "hex": "0x00144283",
-        "text": "sra $8, $0, $20",
+        "text": "sra $8, $20, 10",
         "regs": {},
         "mem": {},
         "stdout": {}
     },
     "instrução_42": {
         "hex": "0x00144700",
-        "text": "sll $8, $0, $28",
+        "text": "sll $8, $20, 28",
         "regs": {},
         "mem": {},
         "stdout": {}
     },
     "instrução_43": {
         "hex": "0x00144780",
-        "text": "sll $8, $0, $30",
+        "text": "sll $8, $20, 30",
         "regs": {},
         "mem": {},
         "stdout": {}
     },
     "instrução_44": {
         "hex": "0x00144702",
-        "text": "srl $8, $0, $28",
+        "text": "srl $8, $20, 28",
         "regs": {},
         "mem": {},
         "stdout": {}
     },
     "instrução_45": {
         "hex": "0x001447c2",
-        "text": "srl $8, $0, $31",
+        "text": "srl $8, $20, 31",
         "regs": {},
         "mem": {},
         "stdout": {}
     },
     "instrução_46": {
         "hex": "0x01344004",
-        "text": "sllv $8, $9, $20",
+        "text": "sllv $8, $20, $9",
         "regs": {},
         "mem": {},
         "stdout": {}
     },
     "instrução_47": {
         "hex": "0x01344006",
-        "text": "srlv $8, $9, $20",
+        "text": "srlv $8, $20, $9",
         "regs": {},
         "mem": {},
         "stdout": {}
     },
     "instrução_48": {
         "hex": "0x01344007",
-        "text": "srav $8, $9, $20",
+        "text": "srav $8, $20, $9",
         "regs": {},
         "mem": {},
         "stdout": {}
@@ -505,7 +505,7 @@
     },
     "instrução_73": {
         "hex": "0x01e00008",
-        "text": " jr $15",
+        "text": "jr $15",
         "regs": {},
         "mem": {},
         "stdout": {}
@@ -519,7 +519,7 @@
     },
     "instrução_75": {
         "hex": "0x0c10004e",
-        "text": " jal 1048654",
+        "text": "jal 1048654",
         "regs": {},
         "mem": {},
         "stdout": {}
@@ -533,7 +533,7 @@
     },
     "instrução_77": {
         "hex": "0x0810004a",
-        "text": " j 1048650",
+        "text": "j 1048650",
         "regs": {},
         "mem": {},
         "stdout": {}

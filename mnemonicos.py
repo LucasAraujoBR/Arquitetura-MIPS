@@ -90,7 +90,8 @@ instructions_r_format_rs_rt = ("mult", "multu", "div", "divu")
 instructions_r_format_rt_rd = ("mfco")
 instructions_r_format_rd = ("mfhi", "mflo")
 instructions_r_format_rs = ("jr")
-instructions_r_format_shamt = ("sll", "srl")
+instructions_r_format_shamt = ("sll", "srl", "sra")
+instructions_r_format_rd_rt_rs = ("sllv", "srav", "srlv")
 
 
 instructions_i_format_rt_rs_imm = ("addi", "addiu", "andi", "ori", "slti", "sltiu", "xori")

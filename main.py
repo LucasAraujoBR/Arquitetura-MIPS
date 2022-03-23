@@ -6,7 +6,7 @@ from funcoes import cria_json
 
 # #Leitura json
 lista_hexadecimais = leitura_json()
-
+print(len(lista_hexadecimais))
 #Converte lista de hx para bin
 lista_binarios = convert_bin(lista_hexadecimais)
 

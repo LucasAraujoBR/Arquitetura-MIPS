@@ -40,7 +40,7 @@ def novo_json(lista_hex, dict_mips):
                 aux = {
                     f"instrução_{contador}": {
                         "hex": f"{lista_hex[x]}",
-                        "text": f" {temp_json[function]}"+f" {temp_json['operando1']}",
+                        "text": f"{temp_json[function]}"+f" {temp_json['operando1']}",
                         "regs": {},
                         "mem": {},
                         "stdout": {}
