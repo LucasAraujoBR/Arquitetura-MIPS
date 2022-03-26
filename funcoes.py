@@ -36,6 +36,7 @@ def novo_json(lista_hex, dict_mips):
         # print(temp_json['function']+f" {temp_json['operando1']}",)
         function = valida_nomeclatura(temp_json)
         if(function != ''):
+            
             if(temp_json[function] == 'syscall'):
                 aux = {
 
@@ -46,7 +47,17 @@ def novo_json(lista_hex, dict_mips):
                     "stdout": {}
 
                 }
-            if('operando2' not in temp_json and temp_json[function] != 'syscall'):
+            elif(temp_json[function] == 'lw' or temp_json[function] == 'sw' or temp_json[function] == 'lb' or temp_json[function] == 'lbu' or temp_json[function] == 'sb'):
+                aux = {
+
+                    "hex": f"{lista_hex[x]}",
+                    "text": f"{temp_json[function]}"+f" {temp_json['operando1']}"+f", {temp_json['operando2']}" + f"({temp_json['operando3']})",
+                    "regs": {},
+                    "mem": {},
+                    "stdout": {}
+
+                }
+            elif('operando2' not in temp_json and temp_json[function] != 'syscall'):
                 aux = {
 
                     "hex": f"{lista_hex[x]}",
