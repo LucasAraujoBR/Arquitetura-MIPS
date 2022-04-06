@@ -3,7 +3,7 @@ from read_json import leitura_json,nome_algoritmo
 from hex_to_bin import convert_bin
 from build_instruction_assembly import leitura_listagem_bins
 from funcoes import cria_json
-
+from mnemonicos import register_base
 
 # #Leitura json
 lista_hexadecimais = leitura_json("exemplos")
@@ -12,7 +12,7 @@ lista_hexadecimais = leitura_json("exemplos")
 lista_binarios = convert_bin(lista_hexadecimais)
 
 #Converte lista bin para dicionário de instruções
-lista_instrucoes_mips = leitura_listagem_bins(lista_binarios)
+lista_instrucoes_mips = leitura_listagem_bins(lista_binarios, register_base)
 
 
 #retorna lista com nomes dos algoritmos
