@@ -34,39 +34,78 @@ def execute_function_i(dicionario_composto, banco_de_registradores):
         print("não foi pedido!")
 
 
-def execute_function_r(dicionario_composto):
+def divide_lo_hi(total_valor):
+    pass
+
+
+def execute_function_r(dicionario_composto, banco_de_registradores):
     funcao = dicionario_composto["instruction"]
 
     if funcao == "add":
-        pass
+        valor1 = banco_de_registradores[dicionario_composto["operando2"]]
+        valor2 = banco_de_registradores[dicionario_composto["operando3"]]
+        banco_de_registradores[dicionario_composto["operando1"]] = valor1 + valor2
     elif funcao == "sub":
-        pass
+        valor1 = banco_de_registradores[dicionario_composto["operando2"]]
+        valor2 = banco_de_registradores[dicionario_composto["operando3"]]
+        banco_de_registradores[dicionario_composto["operando1"]] = valor1 - valor2
     elif funcao == "slt":
         pass
     elif funcao == "and":
-        pass
+        valor1 = banco_de_registradores[dicionario_composto["operando2"]]
+        valor2 = banco_de_registradores[dicionario_composto["operando3"]]
+        banco_de_registradores[dicionario_composto["operando1"]] = valor1 & valor2
     elif funcao == "or":
-        pass
+        valor1 = banco_de_registradores[dicionario_composto["operando2"]]
+        valor2 = banco_de_registradores[dicionario_composto["operando3"]]
+        banco_de_registradores[dicionario_composto["operando1"]] = valor1 | valor2
     elif funcao == "xor":
-        pass
+        valor1 = banco_de_registradores[dicionario_composto["operando2"]]
+        valor2 = banco_de_registradores[dicionario_composto["operando3"]]
+        banco_de_registradores[dicionario_composto["operando1"]] = valor1 ^ valor2
     elif funcao == "nor":
-        pass
+        valor1 = banco_de_registradores[dicionario_composto["operando2"]]
+        valor2 = banco_de_registradores[dicionario_composto["operando3"]]
+        valor_or = valor1 | valor2
+        banco_de_registradores[dicionario_composto["operando1"]] = valor1 | valor2
     elif funcao == "mfhi":
-        pass
+        valor1 = banco_de_registradores["hi"]
+        banco_de_registradores[dicionario_composto["operando1"]] = valor1
     elif funcao == "mflo":
-        pass
+        valor1 = banco_de_registradores["lo"]
+        banco_de_registradores[dicionario_composto["operando1"]] = valor1
     elif funcao == "addu":
-        pass
+        valor1 = banco_de_registradores[dicionario_composto["operando2"]]
+        valor2 = banco_de_registradores[dicionario_composto["operando3"]]
+        banco_de_registradores[dicionario_composto["operando1"]] = valor1 + valor2
     elif funcao == "subu":
-        pass
+        valor1 = banco_de_registradores[dicionario_composto["operando2"]]
+        valor2 = banco_de_registradores[dicionario_composto["operando3"]]
+        banco_de_registradores[dicionario_composto["operando1"]] = valor1 - valor2
     elif funcao == "mult":
-        pass
+        valor1 = banco_de_registradores[dicionario_composto["operando1"]]
+        valor2 = banco_de_registradores[dicionario_composto["operando2"]]
+        total_valor = valor1 * valor2
+        divide_lo_hi(total_valor)
+        # banco_de_registradores[dicionario_composto["lo"]] = valor1 / valor2
+        # banco_de_registradores[dicionario_composto['hi']] = valor1 % valor2
     elif funcao == "multu":
-        pass
+        valor1 = banco_de_registradores[dicionario_composto["operando1"]]
+        valor2 = banco_de_registradores[dicionario_composto["operando2"]]
+        total_valor = valor1 * valor2
+        divide_lo_hi(total_valor)
+        # banco_de_registradores[dicionario_composto["lo"]] = valor1 / valor2
+        # banco_de_registradores[dicionario_composto['hi']] = valor1 % valor2
     elif funcao == "div":
-        pass
+        valor1 = banco_de_registradores[dicionario_composto["operando1"]]
+        valor2 = banco_de_registradores[dicionario_composto["operando2"]]
+        banco_de_registradores[dicionario_composto["lo"]] = valor1 / valor2
+        banco_de_registradores[dicionario_composto['hi']] = valor1 % valor2
     elif funcao == "divu":
-        pass
+        valor1 = banco_de_registradores[dicionario_composto["operando1"]]
+        valor2 = banco_de_registradores[dicionario_composto["operando2"]]
+        banco_de_registradores[dicionario_composto["lo"]] = valor1 / valor2
+        banco_de_registradores[dicionario_composto['hi']] = valor1 % valor2
     elif funcao == "sll":
         pass
     elif funcao == "srl":
