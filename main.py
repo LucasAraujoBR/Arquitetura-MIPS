@@ -6,7 +6,7 @@ from funcoes import cria_json
 from mnemonicos import register_base
 
 # #Leitura json
-lista_hexadecimais = leitura_json("exemplos")
+lista_hexadecimais = leitura_json("exemplo_config")
 
 #Converte lista de hx para bin
 lista_binarios = convert_bin(lista_hexadecimais)
@@ -25,7 +25,7 @@ for x in range (len(lista_algoritmos)):
     #Converte lista de hx para bin
     lista_binarios = convert_bin(lista_hexadecimais)
     #Converte lista bin para dicionário de instruções
-    lista_instrucoes_mips = leitura_listagem_bins(lista_binarios)
+    lista_instrucoes_mips = leitura_listagem_bins(lista_binarios, register_base)
     #Cria json na pasta output, caso o mesmo já exista, ele sobrescreve
     cria_json(lista_hexadecimais,lista_instrucoes_mips,nome)
 
