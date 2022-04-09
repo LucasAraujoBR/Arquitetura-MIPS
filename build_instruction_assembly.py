@@ -49,16 +49,15 @@ def popula_register_base(lista):
 
 
 
-def leitura_listagem_bins(binary_list, dict, regs):
-    dicionario_registers = regs
+def leitura_listagem_bins(binary_list, dict, register_base ):
+    dicionario_registers = register_base
     contador = 0
     lista_regs = list()
     lista_stdout = list()
     for i in binary_list:
         contador += 1
         instruction_type = mnemonicos.instruction_type_definition(i)
-        result_assembly, dicionario_registers = assembly(
-            i, instruction_type, dicionario_registers)
+        result_assembly, dicionario_registers = assembly(i, instruction_type, dicionario_registers)
         dicionario_registers["pc"] += 4
         json_formated = {
             f"i_{contador}": result_assembly
@@ -70,11 +69,19 @@ def leitura_listagem_bins(binary_list, dict, regs):
 
         # Esse dicionário que está sendo impresso aqui, pode ser utilizado para carregar a chave regs do json, nesse print apenas os registradores
         # com valores diferentes de 0 estão sendo impressos.
-        #print("dicionario: ", imprimir_diferentes_de_zero(dicionario_registers))
-    return dict
+        registradores_alterados = diferentes_de_zero(dicionario_registers)
+        # Fazendo a lista dos regs
+        lista_regs.append(registradores_alterados)
 
+        #Fazendo lista do stdout, coloquei zero, mas deveria ser Nada o 1 seria quando dá erro, mas eu não sei qual o valor.
+        if "$12" in registradores_alterados.keys() and registradores_alterados["$12"] == 65299:
+            lista_stdout.append("Overflow")
+        else:
+            lista_stdout.append({})
+        print("regs: ", registradores_alterados)
+    return dict,lista_regs,lista_stdout
 
-def imprimir_diferentes_de_zero(registers):
+def diferentes_de_zero(registers):
     registradores_ocupados = {}
     for x in registers.keys():
         if registers[x] != 0:
