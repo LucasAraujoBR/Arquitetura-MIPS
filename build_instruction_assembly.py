@@ -38,17 +38,24 @@ register_base = {
     "hi": 0,
     "lo": 0
 }
-def leitura_listagem_bins(binary_list, dicio):
+def leitura_listagem_bins(binary_list, dict):
     dicionario_registers = register_base
     contador = 0
     for i in binary_list:
         contador += 1
         instruction_type = mnemonicos.instruction_type_definition(i)
         result_assembly, dicionario_registers = assembly(i, instruction_type, dicionario_registers)
+        dicionario_registers["pc"] += 4
         json_formated = {
             f"i_{contador}": result_assembly
         }
         dict.update(json_formated)
+        # O registrador $12 quando carregado com o valor 65299 significa que rodou uma excessão, então o stdout
+        # deve ser carregado (mas não sei com o quê). O $12 já está sendo carregado, precisa conferir se ele tem esse valor e então carregar
+        # o stdout no json
+
+        # Esse dicionário que está sendo impresso aqui, pode ser utilizado para carregar a chave regs do json, nesse print apenas os registradores
+        # com valores diferentes de 0 estão sendo impressos.
         print("dicionario: ", imprimir_diferentes_de_zero(dicionario_registers))
     return dict
 

@@ -5,7 +5,13 @@ def execute_function_i(dicionario_composto, banco_de_registradores):
     if funcao == "addi":
         valor1 = banco_de_registradores[dicionario_composto["operando2"]]
         valor2 = dicionario_composto["operando3"]
-        banco_de_registradores = RegistersBase.alter_dicionario(banco_de_registradores, dicionario_composto["operando1"], valor2+valor1)
+        soma = valor2+valor1
+        if soma > 2147483647:
+            banco_de_registradores = RegistersBase.alter_dicionario(banco_de_registradores,
+                                                                    "$12",65299)
+        else:
+            banco_de_registradores = RegistersBase.alter_dicionario(banco_de_registradores, dicionario_composto["operando1"], soma )
+
     #     Rever essa funcionalidade, acho que está incorreta
     elif funcao == "addiu":
         valor1 = banco_de_registradores[dicionario_composto["operando2"]]
@@ -57,7 +63,12 @@ def execute_function_r(dicionario_composto, banco_de_registradores):
     if funcao == "add":
         valor1 = banco_de_registradores[dicionario_composto["operando2"]]
         valor2 = banco_de_registradores[dicionario_composto["operando3"]]
-        banco_de_registradores = RegistersBase.alter_dicionario(banco_de_registradores, dicionario_composto["operando1"], valor2+valor1)
+        soma = valor2 + valor1
+        if soma > 2147483647:
+            banco_de_registradores = RegistersBase.alter_dicionario(banco_de_registradores, "$12", 65299)
+        else:
+            banco_de_registradores = RegistersBase.alter_dicionario(banco_de_registradores, dicionario_composto["operando1"], soma)
+
     elif funcao == "sub":
         valor1 = banco_de_registradores[dicionario_composto["operando2"]]
         valor2 = banco_de_registradores[dicionario_composto["operando3"]]
@@ -100,16 +111,30 @@ def execute_function_r(dicionario_composto, banco_de_registradores):
         valor2 = banco_de_registradores[dicionario_composto["operando2"]]
 
         total_valor = valor1 * valor2
-        divide_lo_hi(total_valor)
-        # banco_de_registradores[dicionario_composto["lo"]] = valor1 / valor2
-        # banco_de_registradores[dicionario_composto['hi']] = valor1 % valor2
+        if total_valor > 0:
+            binario = complemento_palavra(total_valor, 64)
+        else:
+            binario = complemento_palavra_neg(total_valor, 64)
+        lo = int(binario[0:31], 2)
+        hi = int(binario[32:], 2)
+
+        banco_de_registradores["lo"] = lo
+        banco_de_registradores['hi'] = hi
+
     elif funcao == "multu":
         valor1 = banco_de_registradores[dicionario_composto["operando1"]]
         valor2 = banco_de_registradores[dicionario_composto["operando2"]]
         total_valor = valor1 * valor2
-        divide_lo_hi(total_valor)
-        # banco_de_registradores[dicionario_composto["lo"]] = valor1 / valor2
-        # banco_de_registradores[dicionario_composto['hi']] = valor1 % valor2
+        if total_valor > 0:
+            binario = complemento_palavra(total_valor, 64)
+        else:
+            binario = complemento_palavra_neg(total_valor, 64)
+        lo = int(binario[0:31], 2)
+        hi = int(binario[32:], 2)
+
+        banco_de_registradores["lo"] = lo
+        banco_de_registradores['hi'] = hi
+
     elif funcao == "div":
         valor1 = banco_de_registradores[dicionario_composto["operando1"]]
         valor2 = banco_de_registradores[dicionario_composto["operando2"]]
@@ -134,7 +159,6 @@ def execute_function_r(dicionario_composto, banco_de_registradores):
         banco_de_registradores = RegistersBase.alter_dicionario(banco_de_registradores,dicionario_composto["operando1"], valor1 >> valor2)
     else:
         pass
-    print(banco_de_registradores)
     return banco_de_registradores
 
 
@@ -144,28 +168,28 @@ def srl(inteiro, shift):
         return inteiro >> shift
     else:
         numero = -inteiro
-        binario = complemento_palavra(numero)
+        binario = complemento_palavra(numero, 32)
         binario = complemento_a_1(binario)
         binario = complemento_a_2_int_bin(binario)
         binario = "0"*shift + binario[0:32-shift]
         return int(binario, 2)
 
-def complemento_palavra_neg(numero):
+def complemento_palavra_neg(numero, tam_palavra):
     binario = bin(numero)
 
     binario = binario.replace("-", "").replace("0b", "")
 
-    binario = "1" * (32 -len(binario)) + binario
+    binario = "1" * (tam_palavra -len(binario)) + binario
     return binario
 
 
-def complemento_palavra(numero):
+def complemento_palavra(numero,tam_palavra):
     binario = bin(numero)
 
     binario = binario.replace("-", "").replace("0b", "")
 
-    if not binario == 32:
-        binario = "0" * (32 -len(binario)) + binario
+    if not binario == tam_palavra:
+        binario = "0" * (tam_palavra -len(binario)) + binario
 
     else:
         return binario
@@ -187,14 +211,14 @@ def complemento_a_1(palavra):
 def complemento_a_2_int_bin(palavra):
     val = int(palavra, 2)
     val = val + 1
-    bin = complemento_palavra_neg(val)
+    bin = complemento_palavra_neg(val, 32)
     return bin
 
 
 def complemento_a_2_bin_int(palavra):
     val = int(palavra, 2)
     val = val - 1
-    bin = complemento_palavra(val)
+    bin = complemento_palavra(val, 32)
     return bin
 
 
