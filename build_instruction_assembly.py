@@ -52,6 +52,8 @@ def popula_register_base(lista):
 def leitura_listagem_bins(binary_list, dict, regs):
     dicionario_registers = regs
     contador = 0
+    lista_regs = list()
+    lista_stdout = list()
     for i in binary_list:
         contador += 1
         instruction_type = mnemonicos.instruction_type_definition(i)
