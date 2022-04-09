@@ -107,12 +107,12 @@ def cria_json(lista_hex, lista_mips, nome):
         for arquivo in os.listdir(f"{cur_path}/output/")
         if arquivo.endswith(".json")
     ]
-    print(lista_arquivos)
+    #print(lista_arquivos)
     data = {}
     if len(lista_mips) > 0:
         nome_arquivo = f'GrupoA.{nome}.output'
         caminho_arquivo = f"{cur_path}/output/{nome_arquivo}.json"
-        print(caminho_arquivo)
+        #print(caminho_arquivo)
         if nome_arquivo in lista_arquivos:
             with open(caminho_arquivo, encoding="utf-8") as json_file_read:
                 data = json.load(json_file_read)

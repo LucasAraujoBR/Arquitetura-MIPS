@@ -42,6 +42,33 @@ def leitura_json(nome):
         print('Não possui arquivos na pasta de input.')
     return lista_hexadecimais
 
+def leitura_json_regs(nome):
+    #Encontra o nome do arquivo
+    cur_path = os.path.dirname(__file__)
+    lista_arquivos = [
+        arquivo
+        for arquivo in os.listdir(f"{cur_path}/input/")
+        if arquivo.endswith(".json")
+        ]
+    nome_arquivo = str(nome+".input.json")
+    caminho_arquivo = f"{cur_path}/input/{nome_arquivo}"
+    lista_regs = []
+    #Abre o arquivo nomeado e executa sua leitura, transformando seus dados numa lista de hexadecimais
+    if len(lista_arquivos)>0:
+        with open(caminho_arquivo, encoding="utf-8") as json_file_read:
+            data = json.load(json_file_read)
+            total_regs = len(data['config']['regs'])
+            print(total_regs)
+            regs_keys = list(data['config']['regs'].keys())
+            print(regs_keys)
+            for _ in range(total_regs):
+                lista_regs.append(regs_keys[_])
+                lista_regs.append(data['config']['regs'][regs_keys[_]])
+            json_file_read.close()
+    else:
+        print('Não possui arquivos na pasta de input.')
+    return lista_regs
+
 
 
 
