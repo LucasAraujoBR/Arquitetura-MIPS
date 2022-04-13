@@ -17,17 +17,17 @@ def backup():
 def valida_nomeclatura(json):
     if(json != {}):
         try:
-            print(json["function"])
+            json["function"]
             return "function"
         except:
-            print(json["funct"])
+            json["funct"]
             return "funct"
     else:
         return ""
 
 
 def novo_json(lista_hex, dict_mips,lista_regs,lista_stdout):
-    print(dict_mips)
+    # print(dict_mips)
     contador = 0
     json_formatado = []
     for x in range(len(lista_hex)):

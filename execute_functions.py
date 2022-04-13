@@ -49,7 +49,7 @@ def execute_function_i(dicionario_composto, banco_de_registradores):
         valor2 = dicionario_composto["operando3"]
         banco_de_registradores[dicionario_composto["operando1"]] = valor1 >> valor2
     else:
-        print("não foi pedido!")
+        print("não foi pedido: " + funcao)
 
     return banco_de_registradores
 
@@ -158,7 +158,7 @@ def execute_function_r(dicionario_composto, banco_de_registradores):
         valor2 = banco_de_registradores[dicionario_composto["operando3"]]
         banco_de_registradores = RegistersBase.alter_dicionario(banco_de_registradores,dicionario_composto["operando1"], valor1 >> valor2)
     else:
-        pass
+        print("não foi pedido: " + funcao)
     return banco_de_registradores
 
 

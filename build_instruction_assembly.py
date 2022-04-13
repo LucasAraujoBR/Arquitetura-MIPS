@@ -78,7 +78,7 @@ def leitura_listagem_bins(binary_list, dict, register_base ):
             lista_stdout.append("Overflow")
         else:
             lista_stdout.append({})
-        print("regs: ", registradores_alterados)
+        # print("regs: ", registradores_alterados)
     return dict,lista_regs,lista_stdout
 
 def diferentes_de_zero(registers):
@@ -104,24 +104,24 @@ def assembly(binary, type_instruction, dicionario_registers):
             dictionary_instruction["function"] = dictionary_hex_separator["funct"]
             dictionary_instruction["operando1"] = dictionary_hex_separator["rs"]
             dictionary_instruction["operando2"] = dictionary_hex_separator["rt"]
-            print(
-                f"{dictionary_instruction['function']} {dictionary_instruction['operando1']}, {dictionary_instruction['operando2']}")
+            # print(
+            #     f"{dictionary_instruction['function']} {dictionary_instruction['operando1']}, {dictionary_instruction['operando2']}")
         elif dictionary_hex_separator['funct'] == "mfco":
             dictionary_instruction["function"] = dictionary_hex_separator["funct"]
             dictionary_instruction["operando1"] = dictionary_hex_separator["rt"]
             dictionary_instruction["operando2"] = dictionary_hex_separator["rd"]
-            print(
-                f"{dictionary_instruction['function']} {dictionary_instruction['operando1']}, {dictionary_instruction['operando2']}")
+            # print(
+            #     f"{dictionary_instruction['function']} {dictionary_instruction['operando1']}, {dictionary_instruction['operando2']}")
         elif structure_search_type_rd(dictionary_hex_separator["funct"]):
             dictionary_instruction["function"] = dictionary_hex_separator["funct"]
             dictionary_instruction["operando1"] = dictionary_hex_separator["rd"]
-            print(
-                f"{dictionary_instruction['function']} {dictionary_instruction['operando1']}")
+            # print(
+            #     f"{dictionary_instruction['function']} {dictionary_instruction['operando1']}")
         elif structure_search_type_rs(dictionary_hex_separator["funct"]):
             dictionary_instruction["function"] = dictionary_hex_separator["funct"]
             dictionary_instruction["operando1"] = dictionary_hex_separator["rs"]
-            print(
-                f"{dictionary_instruction['function']} {dictionary_instruction['operando1']}")
+            # print(
+            #     f"{dictionary_instruction['function']} {dictionary_instruction['operando1']}")
         elif structure_search_type_rd_rt_rs(dictionary_hex_separator["funct"]):
             dictionary_instruction["function"] = dictionary_hex_separator["funct"]
             dictionary_instruction["operando1"] = dictionary_hex_separator["rd"]
@@ -132,26 +132,26 @@ def assembly(binary, type_instruction, dicionario_registers):
             dictionary_instruction["operando1"] = dictionary_hex_separator["rd"]
             dictionary_instruction["operando2"] = dictionary_hex_separator["rt"]
             dictionary_instruction["operando3"] = dictionary_hex_separator["shamt"]
-            print(
-                f"{dictionary_instruction['function']} {dictionary_instruction['operando1']}, {dictionary_instruction['operando2']}, {dictionary_instruction['operando3']}")
+            # print(
+            #     f"{dictionary_instruction['function']} {dictionary_instruction['operando1']}, {dictionary_instruction['operando2']}, {dictionary_instruction['operando3']}")
         elif dictionary_hex_separator["funct"] == "syscall":
             dictionary_instruction["function"] = dictionary_hex_separator["funct"]
 
-            print(f"{dictionary_instruction['function']}")
+            # print(f"{dictionary_instruction['function']}")
         else:
             dictionary_instruction["function"] = dictionary_hex_separator["funct"]
             dictionary_instruction["operando1"] = dictionary_hex_separator["rd"]
             dictionary_instruction["operando2"] = dictionary_hex_separator["rs"]
             dictionary_instruction["operando3"] = dictionary_hex_separator["rt"]
-            print(
-                f"{dictionary_instruction['function']} {dictionary_instruction['operando1']}, {dictionary_instruction['operando2']}, {dictionary_instruction['operando3']}")
+            # print(
+            #     f"{dictionary_instruction['function']} {dictionary_instruction['operando1']}, {dictionary_instruction['operando2']}, {dictionary_instruction['operando3']}")
         dicionario_registers = execute_function_r(
             dictionary_instruction, dicionario_registers)
     elif type_instruction == "J":
         dictionary_instruction["funct"] = mnemonicos.type_j_instructions[f"{binary[0:6]}"]
         dictionary_instruction["operando1"] = int(binary[6:], 2)
-        print(
-            f"{dictionary_instruction['funct']} {dictionary_instruction['operando1']}")
+        # print(
+        #     f"{dictionary_instruction['funct']} {dictionary_instruction['operando1']}")
     elif type_instruction == "I":
         dictionary_hex_separator[
             "instruction"] = mnemonicos.type_i_instructions[f"{binary[0:6]}"]
@@ -163,28 +163,28 @@ def assembly(binary, type_instruction, dicionario_registers):
             dictionary_instruction["operando1"] = dictionary_hex_separator["rt"]
             dictionary_instruction["operando2"] = dictionary_hex_separator["rs"]
             dictionary_instruction["operando3"] = dictionary_hex_separator["immediate"]
-            print(
-                f"{dictionary_instruction['function']} {dictionary_instruction['operando1']}, {dictionary_instruction['operando2']}, {dictionary_instruction['operando3']}")
+            # print(
+            #     f"{dictionary_instruction['function']} {dictionary_instruction['operando1']}, {dictionary_instruction['operando2']}, {dictionary_instruction['operando3']}")
         elif structure_search_type_rt_imm_parent(dictionary_hex_separator["instruction"]):
             dictionary_instruction["function"] = dictionary_hex_separator["instruction"]
             dictionary_instruction["operando1"] = dictionary_hex_separator["rt"]
             dictionary_instruction["operando2"] = dictionary_hex_separator["immediate"]
             dictionary_instruction["operando3"] = dictionary_hex_separator["rs"]
-            print(
-                f"{dictionary_instruction['function']} {dictionary_instruction['operando1']}, {dictionary_instruction['operando2']}({dictionary_instruction['operando3']})")
+            # print(
+            #     f"{dictionary_instruction['function']} {dictionary_instruction['operando1']}, {dictionary_instruction['operando2']}({dictionary_instruction['operando3']})")
         elif structure_search_type_rt_imm(dictionary_hex_separator["instruction"]):
             dictionary_instruction["function"] = dictionary_hex_separator["instruction"]
             dictionary_instruction["operando1"] = dictionary_hex_separator["rt"]
             dictionary_instruction["operando2"] = dictionary_hex_separator["immediate"]
-            print(
-                f"{dictionary_instruction['function']} {dictionary_instruction['operando1']}, {dictionary_instruction['operando2']}")
+            # print(
+            #     f"{dictionary_instruction['function']} {dictionary_instruction['operando1']}, {dictionary_instruction['operando2']}")
         elif structure_search_type_rs_rt_imm(dictionary_hex_separator["instruction"]):
             dictionary_instruction["function"] = dictionary_hex_separator["instruction"]
             dictionary_instruction["operando1"] = dictionary_hex_separator["rs"]
             dictionary_instruction["operando2"] = dictionary_hex_separator["rt"]
             dictionary_instruction["operando3"] = dictionary_hex_separator["immediate"]
-            print(
-                f"{dictionary_instruction['function']} {dictionary_instruction['operando1']}, {dictionary_instruction['operando2']}, {dictionary_instruction['operando3']}")
+            # print(
+            #     f"{dictionary_instruction['function']} {dictionary_instruction['operando1']}, {dictionary_instruction['operando2']}, {dictionary_instruction['operando3']}")
         dicionario_registers = execute_function_i(
             dictionary_instruction, dicionario_registers)
 

@@ -58,9 +58,9 @@ def leitura_json_regs(nome):
         with open(caminho_arquivo, encoding="utf-8") as json_file_read:
             data = json.load(json_file_read)
             total_regs = len(data['config']['regs'])
-            print(total_regs)
+            # print(total_regs)
             regs_keys = list(data['config']['regs'].keys())
-            print(regs_keys)
+            # print(regs_keys)
             for _ in range(total_regs):
                 lista_regs.append(regs_keys[_])
                 lista_regs.append(data['config']['regs'][regs_keys[_]])

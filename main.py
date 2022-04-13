@@ -5,7 +5,9 @@ from build_instruction_assembly import leitura_listagem_bins,popula_register_bas
 from funcoes import cria_json
 from mnemonicos import register_base
 
-
+print("-=-=-=-=-=-=-=-=-=-=-=-=-=")
+print("    INÍCIO DO PROCESSO    ")
+print("-=-=-=-=-=-=-=-=-=-=-=-=-=")
 
 
 
@@ -36,6 +38,9 @@ for x in range (len(lista_algoritmos)):
     #Cria json na pasta output, caso o mesmo já exista, ele sobrescreve
     cria_json(lista_hexadecimais,lista_instrucoes_mips,list_reg,lista_stdout,nome)
 
+print("-=-=-=-=-=-=-=-=-=-=-=-=-=")
+print("      FIM DO PROGRAMA     ")
+print("-=-=-=-=-=-=-=-=-=-=-=-=-=")
 
 
 
